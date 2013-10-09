@@ -60,6 +60,19 @@
     display: block;
     background: rgba(0, 0, 0, .5);
     z-index: 100;
+
+    -webkit-transition: background 0.2s linear;
+    -moz-transition: background 0.2s linear;
+    -o-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+}
+
+#sitenav.navsolid {
+    background: rgba(0, 0, 0, 1);
+}
+
+#main-nav.mainsolid a {
+    font-size: 1.3em;
 }
 
 #main-nav {
@@ -74,6 +87,11 @@
     display: inline-block;
     padding: 10px 15px;
     color: white;
+
+    -webkit-transition: font-size 0.2s linear;
+    -moz-transition: font-size 0.2s linear;
+    -o-transition: font-size 0.2s linear;
+    transition: font-size 0.2s linear;
 }
 
 #main-nav a:hover {
@@ -118,25 +136,10 @@
 
 #nav-buttons a:hover {
     background: rgba(255, 255, 255, .8);
+    font-size: 1.2em;
     color: black;
 }
 
-
-
-#hackasoton-nav {
-    height: 1px; }
-#hackasoton-nav div {
-    width: 150px;
-    margin-left: 20px;
-    height: 25px;
-    margin-top: -7px;
-    background-repeat: no-repeat;
-    -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -o-filter: blur(3px);
-    -ms-filter: blur(3px);
-    filter: blur(3px);
-    background-size: contain; }
 
 
 body {
@@ -169,8 +172,10 @@ body {
 #vactrack-slogan {
     font-family: 'Ostrich';
     text-align: center;
-    font-size: 1.3em;
-    color: white; }
+    padding: 0px 0px 20px 0px;
+    font-size: 1.6em;
+    color: white;
+}
 
 
 .organizer {

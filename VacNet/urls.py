@@ -19,7 +19,3 @@ if settings.DEBUG:
             (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
         )
 
-##Any override for userena views goes here:
-#urlpatterns += patterns('',
-#    url(r'^accounts/', include('django-registration.urls')),
-#)
