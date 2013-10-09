@@ -1,21 +1,37 @@
 # Django settings for VacNet project.
 
+import os
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+PROJECT_ROOT =  '/'.join(PROJECT_ROOT.split('/')[0:-1])
+
+
+#USERENA OVERRIDE SETTINGS
+USERENA_REDIRECT_ON_SIGNOUT = '/'
+USERENA_SIGNIN_REDIRECT_URL = '/'
+USERENA_SIGNIN_AFTER_SIGNUP = False
+USERENA_ACTIVATION_DAYS = 30
+USERENA_ACTIVATION_NOTIFY = True
+USERENA_ACTIVATION_REQUIRED = False
+
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Alejandro', 'axsauze@gmail.com'),
+    ('Chen', 'chenlieng.dev+gsy@gmail.com')
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'vacnetdb',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'vacnet',
+        'PASSWORD': 'vacnet',
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -29,7 +45,7 @@ ALLOWED_HOSTS = []
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/London'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -50,12 +66,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = PROJECT_ROOT + '/templates/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -85,12 +101,19 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '316aj3!3^*6%8qh6*%2oi^npg^s)a3o0fkw6*-4(tyf&!*^p)6'
 
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'),
+    )
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
+    #     'django.template.loaders.eggs.Loader',
+    )
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -107,8 +130,6 @@ ROOT_URLCONF = 'VacNet.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'VacNet.wsgi.application'
 
-TEMPLATE_DIRS = ('/Users/axsauze/IdeaProjects/VacNet/templates',)
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -116,11 +137,33 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
+    'userena',
+    'guardian',
+    'easy_thumbnails',
+    'accounts'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
+
+
+#USED FOR USERENA AND GUARDIAN
+AUTHENTICATION_BACKENDS = (
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+    )
+
+ANONYMOUS_USER_ID = -1
+#USED FOR USERENA AND GUARDIAN
+
+#OVERRIDING AUTH METHODS
+AUTH_PROFILE_MODULE = 'accounts.InstitutionProfile'
+
+LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
+#OVERRIDING AUTH METHODS
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -150,3 +193,10 @@ LOGGING = {
         },
     }
 }
+
+#Use email
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'hackasoton@gmail.com'
+EMAIL_HOST_PASSWORD = 'HackaS0t0n'
