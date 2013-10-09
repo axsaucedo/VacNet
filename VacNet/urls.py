@@ -9,7 +9,6 @@ admin.autodiscover()
 urlpatterns = patterns(''
     , url(r'^$', views.vacBox, name='vacBox')
     , url(r'^admin/', include(admin.site.urls))
-    , url(r'^accounts/', include('userena.urls')),
 )
 
 #For Static media
@@ -18,4 +17,9 @@ if settings.DEBUG:
             (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
             (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
         )
+
+urlpatterns += patterns(''
+    , url(r'^.*/', views.notFound, name='notFound')
+#    , url(r'.*', include('userena.urls')),
+)
 

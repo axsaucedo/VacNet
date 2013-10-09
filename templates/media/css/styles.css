@@ -99,6 +99,22 @@
     border: 2px solid;
 }
 
+#nav-logged {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 1.9em;
+}
+
+#nav-logged a:hover {
+    color: white;
+}
+
+#nav-logged b {
+    padding: 0px 20px;
+}
+
 #nav-buttons {
     position: absolute;
     right: 0px;

@@ -22,8 +22,8 @@
 <nav id='sitenav'>
 
     <div class="share">
-        <a href="http://twitter.com/hackasoton" class="twitter">Tweet</a>
-        <a href="http://facebook.com/hackasoton" class="facebook">Like</a>
+        <a href="http://twitter.com/vaccinetracking" class="twitter">Tweet</a>
+        <a href="http://facebook.com/vactrack" class="facebook">Like</a>
     </div>
 
     <span id="main-nav">
@@ -32,10 +32,23 @@
         <a href="#how">How</a>
         <a href="#who">Who</a>
     </span>
-    <span id="nav-buttons">
-        <a href="">Sign Up</a>
-        <a href="">Log In</a>
-    </span>
+
+    <div id="usersection">
+        {% if user.is_authenticated %}
+            <span id="nav-logged">
+                <a class="simplebutton" href="/accounts/{{ user.username }}">Account</a>
+                    <b>Hello {{ user.username }}</b>
+                <a class="simplebutton" href="/accounts/signout">Sign Out</a>
+            </span>
+        {% else %}
+            <span id="nav-buttons">
+                <a href="">Sign Up</a>
+                <a href="">Log In</a>
+            </span>
+        {% endif %}
+    </div>
+
+
 </nav>
 
 <div id="home" style="background-image: url(/media/images/home.jpg);">
