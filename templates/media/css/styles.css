@@ -1,22 +1,133 @@
+#hackasoton-buttons {
+    margin: auto auto;
+    padding: 0px;
+    list-style-type: none;
+    width: 240px;
+}
+
+#hackasoton-buttons li {
+    display: block;
+    float: left;
+    margin: 0 5px;
+    background: url(../images/button-bg.jpg) no-repeat center top;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 1px 1px 1px #666;
+    -webkit-box-shadow: 1px 1px 1px #666;
+    -o-box-shadow: 1px 1px 1px #666;
+    box-shadow: 1px 1px 1px #666;
+
+}
+
+#hackasoton-buttons a {
+    display: block;
+    width: 100px;
+    padding: 5px 5px;
+    font-family:Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #666;
+    text-align:center;
+    background: url(../images/button-bg.jpg) no-repeat center -200px;
+    background: rgba(80, 125, 200, 0.55);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-transition: background 0.5s linear;
+    -moz-transition: background 0.5s linear;
+    -o-transition: background 0.5s linear;
+    transition: background 0.5s linear;
+}
+
+#hackasoton-buttons a:hover {
+    background: url(../images/button-bg.jpg) no-repeat center top;
+    background: rgba(100, 125, 175, 0);
+}
+
+
+
+#nav-buttons {
+    margin: auto auto;
+    padding: 0px;
+    list-style-type: none;
+    width: 270px;
+    border: solid;
+}
+
+#nav-buttons li {
+    display: block;
+    float: left;
+    margin: 0 5px;
+    background: url(../images/button-bg.jpg) no-repeat center top;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 1px 1px 1px #666;
+    -webkit-box-shadow: 1px 1px 1px #666;
+    -o-box-shadow: 1px 1px 1px #666;
+    box-shadow: 1px 1px 1px #666;
+
+}
+
+#nav-buttons a {
+    display: block;
+    width: 100px;
+    padding: 5px 5px;
+    font-family:Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #666;
+    text-align:center;
+    background: url(../images/button-bg.jpg) no-repeat center -200px;
+    background: rgba(80, 125, 200, 0.55);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-transition: background 0.5s linear;
+    -moz-transition: background 0.5s linear;
+    -o-transition: background 0.5s linear;
+    transition: background 0.5s linear;
+}
+
+#nav-buttons a:hover {
+    background: url(../images/button-bg.jpg) no-repeat center top;
+    background: rgba(100, 125, 175, 0);
+}
+
+
+
 #sitenav {
     position: fixed;
     width: 100%;
     top: 0px;
+    float: right;
     left: 0px;
     text-align: center;
     display: block;
     background-color: #eeeeee;
     border-bottom: 1px solid #a2a2a2;
     z-index: 100; }
-#sitenav ul {
+#main-nav {
     display: block;
     list-style: none;
-    margin: 0; }
-#sitenav ul li {
+    margin: 0;
+    margin: auto auto;
+    width: 500px;
+    border: solid;}
+#main-nav li {
     display: inline-block;
     padding: 0;
     margin: 0; }
-#sitenav ul li a {
+#main-nav li a {
     display: inline-block;
     padding: 10px 15px; }
 
@@ -27,8 +138,12 @@
     margin-left: 20px;
     height: 25px;
     margin-top: -7px;
-    background-image: url(../images/svc2uk-0.png);
     background-repeat: no-repeat;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
     background-size: contain; }
 
 #fot-logo {
@@ -93,32 +208,32 @@ body {
     display: block;
     padding: 0px; }
 
-#hackasoton-buttons {
-    width: 100%;
-    text-align: center;
-    height: 40px;
-    margin: 50px 0 0 0; }
-#hackasoton-buttons a {
-    border: 1px solid #89011e;
-    color: white;
-    border-radius: 0px;
-    box-shadow: inset 0 1px 0px #e00606, 0 2px 2px black;
-    text-shadow: 0px -1px 0px rgba(100, 100, 100, 0.5);
-    background: #890111;
-    padding: 12px 24px;
-    margin: 5px;
-    cursor: pointer;
-    outline: 0 none; }
-#hackasoton-buttons a:hover {
-    background: #990000;
-    outline: 0 none; }
-#hackasoton-buttons a:active {
-    outline: 0 none !important;
-    background: maroon; }
-#hackasoton-buttons a:focus {
-    outline: thin #333333; }
-#hackasoton-buttons a::-moz-focus-inner {
-    outline: 0 none !important; }
+/*#hackasoton-buttons {*/
+    /*width: 100%;*/
+    /*text-align: center;*/
+    /*height: 40px;*/
+    /*margin: 50px 0 0 0; }*/
+/*#hackasoton-buttons a {*/
+    /*border: 1px solid #89011e;*/
+    /*color: white;*/
+    /*border-radius: 0px;*/
+    /*box-shadow: inset 0 1px 0px #e00606, 0 2px 2px black;*/
+    /*text-shadow: 0px -1px 0px rgba(100, 100, 100, 0.5);*/
+    /*background: #890111;*/
+    /*padding: 12px 24px;*/
+    /*margin: 5px;*/
+    /*cursor: pointer;*/
+    /*outline: 0 none; }*/
+/*#hackasoton-buttons a:hover {*/
+    /*background: #990000;*/
+    /*outline: 0 none; }*/
+/*#hackasoton-buttons a:active {*/
+    /*outline: 0 none !important;*/
+    /*background: maroon; }*/
+/*#hackasoton-buttons a:focus {*/
+    /*outline: thin #333333; }*/
+/*#hackasoton-buttons a::-moz-focus-inner {*/
+    /*outline: 0 none !important; }*/
 
 #hackasoton-slogan {
     font-family: "Akashi";
