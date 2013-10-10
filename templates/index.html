@@ -18,7 +18,7 @@
     </script>
 
 </head>
-<body>
+<body id="home-body">
 <nav id='sitenav'>
 
     <div class="share">
@@ -27,6 +27,7 @@
     </div>
 
     <span id="main-nav">
+        <a href="#home">Home</a>
         <a href="#why">Why</a>
         <a href="#what">What</a>
         <a href="#how">How</a>
@@ -36,14 +37,14 @@
     <div id="usersection">
         {% if user.is_authenticated %}
             <span id="nav-logged">
-                <a class="simplebutton" href="/accounts/{{ user.username }}">Account</a>
+                <a class="simplebutton" href="/accounts/{{ user.username }}/">Account</a>
                     <b>Hello {{ user.username }}</b>
-                <a class="simplebutton" href="/accounts/signout">Sign Out</a>
+                <a class="simplebutton" href="/accounts/signout/">Sign Out</a>
             </span>
         {% else %}
             <span id="nav-buttons">
-                <a href="">Sign Up</a>
-                <a href="">Log In</a>
+                <a href="/accounts/signup/">Sign Up</a>
+                <a href="/accounts/signin/">Log In</a>
             </span>
         {% endif %}
     </div>
@@ -58,10 +59,17 @@
 
         <div id="vactrack-slogan">Tracking vaccines - ensuring health - saving lives.</div>
 
-        <div id="vactrack-buttons">
-            <a href="#">Sign Up</a>
-            <a href="#">Log In</a>
-        </div>
+        {% if user.is_authenticated %}
+            <div style="width: 320px;" id="vactrack-buttons">
+                <a style="width: 130px" href="/createcase">Create Case</a>
+                <a style="width: 130px" href="#">My Cases</a>
+            </div>
+        {% else %}
+            <div id="vactrack-buttons">
+                <a href="/accounts/signup/">Sign Up</a>
+                <a href="/accounts/signin/">Log In</a>
+            </div>
+        {% endif %}
     </div>
 
 </div>
@@ -103,41 +111,41 @@
 </article>
 
 
-{#<article id="who">#}
-{#    <div class="wrapper">#}
-{#        <h1>Who?</h1>#}
-{##}
-{#        <div itemscope itemtype ="http://schema.org/Person" class="organizer">#}
-{#            <a href="http://www.linkedin.com/pub/alejandro-saucedo/41/6b3/4b0"><img src="images/sauze.jpg" itemprop="image" alt="Alejandro Saucedo"/></a>#}
-{#            <h2 itemprop="name">Alejandro Saucedo</h2>#}
-{#            <ul itemprop="description">#}
-{#                <li>Has organized 5 national programming and entrepreneurial events.</li>#}
-{#                <li>Has attended 15+ programming events and won more than 7.</li>#}
-{#                <li>Had the opportunity to meet Cameron and to discuss entrepreneurial matters with the Duke of York.</li>#}
-{#            </ul>#}
-{#        </div>#}
-{##}
-{#        <div itemscope itemtype ="http://schema.org/Person" class="organizer">#}
-{#            <a href="http://www.linkedin.com/in/izidorflajsman"><img src="images/izi.jpg" itemprop="image" alt="Izidor Flajsman" /></a>#}
-{#            <h2 itemprop="name">Syed Roshan</h2>#}
-{#            <ul itemprop='description'>#}
-{#                <li>Top attendee in the D-Code Bootcamp by Startup Malaysia.</li>#}
-{#                <li>Finalist - Microsoft Imagine Cup Malaysia 2013.</li>#}
-{#                <li>Renowned attendee of the Global Startup Youth 2013.</li>#}
-{#            </ul>#}
-{#        </div>#}
-{##}
-{#        <div itemscope itemtype ="http://schema.org/Person" class="organizer">#}
-{#            <a href="http://ro.linkedin.com/in/vladvelici"><img src="images/vlad.jpg" itemprop="image" alt="Vlad Velici" /></a>#}
-{#            <h2 itemprop="name">Chen Liang</h2>#}
-{#            <ul itemprop="description">#}
-{#                <li>Attended nearly 30 tech events. Won 19 of them.</li>#}
-{#                <li>Organized Summerhacks, a national hackaton in Timisoara, Romania.</li>#}
-{#                <li>Obtained his first recognition in a contest at the age of 13.</li>#}
-{#            </ul>#}
-{#        </div>#}
-{#    </div>#}
-{#</article>#}
+<article id="who">
+    <div class="wrapper">
+        <h1>Who?</h1>
+
+        <div itemscope itemtype ="http://schema.org/Person" class="organizer">
+            <a href="http://www.linkedin.com/pub/alejandro-saucedo/41/6b3/4b0"><img src="images/sauze.jpg" itemprop="image" alt="Alejandro Saucedo"/></a>
+            <h2 itemprop="name">Alejandro Saucedo</h2>
+            <ul itemprop="description">
+                <li>Has organized 5 national programming and entrepreneurial events.</li>
+                <li>Has attended 15+ programming events and won more than 7.</li>
+                <li>Had the opportunity to meet Cameron and to discuss entrepreneurial matters with the Duke of York.</li>
+            </ul>
+        </div>
+
+        <div itemscope itemtype ="http://schema.org/Person" class="organizer">
+            <a href="http://www.linkedin.com/in/izidorflajsman"><img src="images/izi.jpg" itemprop="image" alt="Izidor Flajsman" /></a>
+            <h2 itemprop="name">Syed Roshan</h2>
+            <ul itemprop='description'>
+                <li>Top attendee in the D-Code Bootcamp by Startup Malaysia.</li>
+                <li>Finalist - Microsoft Imagine Cup Malaysia 2013.</li>
+                <li>Renowned attendee of the Global Startup Youth 2013.</li>
+            </ul>
+        </div>
+
+        <div itemscope itemtype ="http://schema.org/Person" class="organizer">
+            <a href="http://ro.linkedin.com/in/vladvelici"><img src="images/vlad.jpg" itemprop="image" alt="Vlad Velici" /></a>
+            <h2 itemprop="name">Chen Liang</h2>
+            <ul itemprop="description">
+                <li>Attended nearly 30 tech events. Won 19 of them.</li>
+                <li>Organized Summerhacks, a national hackaton in Timisoara, Romania.</li>
+                <li>Obtained his first recognition in a contest at the age of 13.</li>
+            </ul>
+        </div>
+    </div>
+</article>
 
 <script type="text/javascript" src="/media/js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src='/media/js/main.js'></script>

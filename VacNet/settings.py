@@ -141,7 +141,8 @@ INSTALLED_APPS = (
     'userena',
     'guardian',
     'easy_thumbnails',
-    'accounts'
+    'accounts',
+    'VacBox',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

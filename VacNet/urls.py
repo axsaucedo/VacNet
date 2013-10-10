@@ -8,7 +8,11 @@ admin.autodiscover()
 
 urlpatterns = patterns(''
     , url(r'^$', views.vacBox, name='vacBox')
+    , url(r'^createcase/', views.createCase, name='createCase')
     , url(r'^admin/', include(admin.site.urls))
+    , url(r'^accounts/', include('accounts.urls'))
+    , url(r'^c/(?P<code>\w+)/$', views.editCase, name='editCase')
+    , url(r'^e/(?P<code>\w+)/$', views.addPeople, name='addPeople')
 )
 
 #For Static media
@@ -20,6 +24,5 @@ if settings.DEBUG:
 
 urlpatterns += patterns(''
     , url(r'^.*/', views.notFound, name='notFound')
-#    , url(r'.*', include('userena.urls')),
 )
 

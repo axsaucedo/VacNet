@@ -29,14 +29,14 @@
     <div id="usersection">
         {% if user.is_authenticated %}
             <span id="nav-logged">
-                <a class="simplebutton" href="/accounts/{{ user.username }}">Account</a>
+                <a class="simplebutton" href="/accounts/{{ user.username }}/">Account</a>
                     <b>Hello {{ user.username }}</b>
-                <a class="simplebutton" href="/accounts/signout">Sign Out</a>
+                <a class="simplebutton" href="/accounts/signout/">Sign Out</a>
             </span>
         {% else %}
             <span id="nav-buttons">
-                <a href="">Sign Up</a>
-                <a href="">Log In</a>
+                <a href="/accounts/signup/">Sign Up</a>
+                <a href="/accounts/signin/">Log In</a>
             </span>
         {% endif %}
     </div>
@@ -44,7 +44,7 @@
 
 </nav>
 
-<div id="home" style="background-image: url(/media/images/home.jpg);">
+<div id="home" style="background-image: url(/media/images/404vac.jpg);">
 
     <div id="titles">
         <div id="vactrack-logo">404</div>

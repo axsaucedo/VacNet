@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{{ name }}{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>{{ name }}</legend>
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                {{ field.errors }}
+                <p>
+                    {{ field.label_tag }}
+                    {{ field }}
+                </p>
+            {% endfor %}
+        </fieldset>
+        <input type="submit" value="{% trans "CreateCase" %}" />
+        {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
+    </form>
+{% endblock %}

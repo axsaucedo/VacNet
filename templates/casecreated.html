@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{{ name }}{% endblock %}
+
+{% block content %}
+    <div id="case-created-container">
+        <h1>A case for {{ vaccines }} vaccines in {{ country }} has been created!</h1>
+        <p>
+            Case Number: {{ casenumber }}
+        </p>
+        <p>
+            <a href="/c/{{ casenumber }}/">Case Link</a>
+        </p>
+    </div>
+{% endblock %}
